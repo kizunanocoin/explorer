@@ -13,6 +13,7 @@ const nano = new nanode.Nano({ url: 'http://rpc.kizunanocoin.com' });
 const config = {
     "nodeName": "explorer.kizunanocoin.com",
     "account": "kizn_1kmo3ndb6hfxzjm459zi8g4da3rm76endb65h9rjtqojoypq6it8d776w96d",
+    "startFrom": "kizn_1abnqj5paqjc8h9k5yba57d9nbebggyyy1kyctken3sqqxbyp1oombdm5jjd",
     "clientUrl": "https://explorer.kizunanocoin.com",
     "raiblocksDir": "/home/ryanlefevre/RaiBlocks",
     "nodeHost": "http://localhost:3000",
@@ -110,7 +111,7 @@ app.get("/accounts/:page(\\d+)", async (req, res, next) => {
     try {
         const data = async function () {
             var total = (await nano.rpc("frontier_count")).count;
-            const frontiers = await nano.rpc("frontiers", { account: config.account, count: total });
+            const frontiers = await nano.rpc("frontiers", { account: config.startFrom, count: total });
             const balances = (await nano.accounts.balances(Object.keys(frontiers.frontiers))).balances;
 
             const accounts = [];
@@ -137,7 +138,7 @@ app.get("/accounts/distribution", async (req, res, next) => {
     try {
         const data = async function () {
             const total = (await nano.rpc("frontier_count")).count;
-            const frontiers = await nano.rpc("frontiers", { account: config.account, count: total });
+            const frontiers = await nano.rpc("frontiers", { account: config.startFrom, count: total });
             const balances = (await nano.accounts.balances(Object.keys(frontiers.frontiers))).balances;
 
             var distribution = {
@@ -744,8 +745,8 @@ app.get("/v2/representatives/official", async (req, res, next) => {
  */
 app.get("/v2/ticker", async (req, res, next) => {
     try {
-        const result = await axios.get("https://coinutil.net/currencies/info/kizunacoin");
-        res.json({ "USD": result.data.price_usd, "BTC": result.data.price_btc });
+        const response = await axios.get("https://api.coingecko.com/api/v3/coins/kizunacoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false");
+        res.json({ "USD": response.data.market_data.current_price.usd, "BTC": response.data.market_data.current_price.btc });
     } catch (e) {
         next(e);
     }
