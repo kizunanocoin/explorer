@@ -1,0 +1,33 @@
+#Navigation {
+  color: #fff;
+  max-width: 1680px;
+  margin: 0 auto;
+}
+
+#Navigation .LogoWrap {
+  text-align: center;
+}
+
+#Navigation .LogoWrap img {
+  width: 64px;
+}
+
+#Navigation .LogoWrap .VertLogo {
+  width: 130px;
+}
+
+#Navigation .LogoWrap .HorizLogo {
+  width: 220px;
+}
+
+.NavigationList {
+  margin-left: -1rem;
+}
+
+.NavigationList li a {
+  color: #fff;
+}
+
+.NavigationList li a.active {
+  font-weight: bold;
+}

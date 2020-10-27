@@ -1,0 +1,93 @@
+:root {
+  --nano-blue: #39b6ff;
+}
+
+.text-monospace {
+  font-family: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace !important;
+}
+
+.btn-nano-primary {
+  background-color: var(--nano-blue);
+  border-color: var(--nano-blue);
+  color: #fff;
+}
+
+.btn-nano-primary:hover {
+  color: #e2e2e2;
+}
+
+.nav-pills .nav-link.nano {
+  color: var(--nano-blue);
+}
+
+.nav-pills .nav-link.nano.active {
+  background-color: var(--nano-blue);
+  color: #fff;
+}
+
+.pagination .page-item .page-link {
+  color: var(--nano-blue);
+  background-color: white;
+}
+
+.pagination .page-item.active .page-link {
+  color: white;
+  background-color: var(--nano-blue);
+  border-color: var(--nano-blue);
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+#App .ContentContainer {
+  overflow-y: auto;
+}
+
+#App .Header {
+  background-color: var(--nano-blue);
+  color: #fff;
+}
+
+.Transaction-enter {
+  opacity: 0.01;
+}
+
+.Transaction-enter.Transaction-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.Transaction-leave {
+  opacity: 1;
+}
+
+.Transaction-leave.Transaction-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+h1 {
+  font-size:1.8rem;
+}
+
+h2 {
+  font-size:1.6rem;
+}
+
+h3 {
+  font-size:1.4rem;
+}
+
+h4 {
+  font-size:1.2rem;
+}
+
+h5 {
+  font-size:1.0rem;
+}
+
+h6 {
+  font-size:0.8rem;
+}
