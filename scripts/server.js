@@ -110,21 +110,8 @@ app.get("/account", async (req, res) => {
 app.get("/accounts/:page(\\d+)", async (req, res, next) => {
     try {
         const data = async function () {
-            var total = (await nano.rpc("frontier_count")).count;
-            const frontiers = await nano.rpc("frontiers", { account: config.startFrom, count: total });
-            const balances = (await nano.accounts.balances(Object.keys(frontiers.frontiers))).balances;
-
-            const accounts = [];
-            for (var address in balances) {
-                const balance = fromRaw(balances[address].balance);
-                if (balance > 0) {
-                    accounts.push({ account: address, balance: balance });
-                } else {
-                    total--;
-                }
-            }
-
-            return res.json({ total: total, perPage: 50, accounts: accounts });
+            const result = await axios.get("https://node.kizunanocoin.com/accounts?page="+req.params.page);
+            return res.json({ total: result.data.total, perPage: 50, accounts: result.data.accounts });
         }();
     } catch (e) {
         next(e);
@@ -137,59 +124,8 @@ app.get("/accounts/:page(\\d+)", async (req, res, next) => {
 app.get("/accounts/distribution", async (req, res, next) => {
     try {
         const data = async function () {
-            const total = (await nano.rpc("frontier_count")).count;
-            const frontiers = await nano.rpc("frontiers", { account: config.startFrom, count: total });
-            const balances = (await nano.accounts.balances(Object.keys(frontiers.frontiers))).balances;
-
-            var distribution = {
-                "10": 0,
-                "100": 0,
-                "1000": 0,
-                "10000": 0,
-                "100000": 0,
-                "1000000": 0,
-                "10000000": 0,
-                "100000000": 0,
-                "1000000000": 0,
-                "10000000000": 0
-            };
-
-            for (var address in balances) {
-                const balance = fromRaw(balances[address].balance);
-
-                if (1 <= balance && balance < 10) {
-                    distribution["10"]++;
-                }
-                if (10 <= balance && balance < 100) {
-                    distribution["100"]++;
-                }
-                if (100 <= balance && balance < 1000) {
-                    distribution["1000"]++;
-                }
-                if (1000 <= balance && balance < 10000) {
-                    distribution["10000"]++;
-                }
-                if (10000 <= balance && balance < 100000) {
-                    distribution["100000"]++;
-                }
-                if (100000 <= balance && balance < 1000000) {
-                    distribution["1000000"]++;
-                }
-                if (1000000 <= balance && balance < 10000000) {
-                    distribution["10000000"]++;
-                }
-                if (10000000 <= balance && balance < 100000000) {
-                    distribution["100000000"]++;
-                }
-                if (100000000 <= balance && balance < 1000000000) {
-                    distribution["1000000000"]++;
-                }
-                if (1000000000 <= balance) {
-                    distribution["10000000000"]++;
-                }
-            }
-
-            return res.json({ "distribution": distribution });
+            const result = await axios.get("https://node.kizunanocoin.com/distribution");
+            return res.json({ "distribution": result.data });
         }();
     } catch (e) {
         next(e);
