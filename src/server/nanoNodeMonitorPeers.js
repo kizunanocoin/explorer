@@ -76,7 +76,7 @@ async function fetchNanoNodeNinjaMonitors() {
 }
 
 async function checkKnownMonitors() {
-  console.log("Checking known nanoNodeMonitors");
+  console.log("Checking known KizunanoNodeMonitors");
 
   const data = _.compact(
     await Promise.all(

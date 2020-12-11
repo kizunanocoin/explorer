@@ -93,10 +93,10 @@ export default class AggregateNetworkData extends React.Component {
                 values={{
                   link: (
                     <a
-                      href="https://github.com/NanoTools/nanoNodeMonitor"
+                      href="https://node.kizunanocoin.com/"
                       target="_blank"
                     >
-                      nanoNodeMonitors
+                      KizunanoNodeMonitors
                     </a>
                   )
                 }}

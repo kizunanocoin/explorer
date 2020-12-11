@@ -47,11 +47,11 @@ export default class NodeNinjaAccount extends React.Component {
               values={{
                 link: (
                   <a
-                    href={`https://mynano.ninja/account/${account}`}
+                    href={`https://explorer.kizunanocoin.com/explorer/account/${account}`}
                     className="text-muted"
                     target="_blank"
                   >
-                    My Nano Ninja
+                    KIZUNANO COIN Blockchain Explorer
                   </a>
                 )
               }}
