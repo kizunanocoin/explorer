@@ -13,11 +13,11 @@ export default class RandomVerifiedAccounts extends React.Component {
     });
     const accounts = await data.json();*/
     var accounts = [
-      {"account":"kizn_1e8a1is3cb8okj9k9yuim73mq46jrtnnsnhdtydpkb76apw9gyrjthbc4mso", "alias":"The KIZ Association #1"},
-      {"account":"kizn_3jottfzje496q53ipxy6zgkbheeg5ok1qzm93ggkpabw3aydj8nc3kcssjoy", "alias":"The KIZ Association #2"},
-      {"account":"kizn_1kmo3ndb6hfxzjm459zi8g4da3rm76endb65h9rjtqojoypq6it8d776w96d", "alias":"The KIZ Association #3"},
-      {"account":"kizn_1abnqj5paqjc8h9k5yba57d9nbebggyyy1kyctken3sqqxbyp1oombdm5jjd", "alias":"The KIZ Association #4"},
-      {"account":"kizn_3phmy7fguk7eun9ck8yeekhjnraokb1x1c996dq573euxehhjkawuhjmhsxb", "alias":"The KIZ Association #5"},
+      {"account":"kizn_1e8a1is3cb8okj9k9yuim73mq46jrtnnsnhdtydpkb76apw9gyrjthbc4mso", "alias":"The KIZUNANO Association #1"},
+      {"account":"kizn_3jottfzje496q53ipxy6zgkbheeg5ok1qzm93ggkpabw3aydj8nc3kcssjoy", "alias":"The KIZUNANO Association #2"},
+      {"account":"kizn_1kmo3ndb6hfxzjm459zi8g4da3rm76endb65h9rjtqojoypq6it8d776w96d", "alias":"The KIZUNANO Association #3"},
+      {"account":"kizn_1abnqj5paqjc8h9k5yba57d9nbebggyyy1kyctken3sqqxbyp1oombdm5jjd", "alias":"The KIZUNANO Association #4"},
+      {"account":"kizn_3phmy7fguk7eun9ck8yeekhjnraokb1x1c996dq573euxehhjkawuhjmhsxb", "alias":"The KIZUNANO Association #5"},
     ]
 
     this.setState({ accounts: sampleSize(accounts, this.props.count) });
@@ -35,11 +35,11 @@ export default class RandomVerifiedAccounts extends React.Component {
             values={{
               link: (
                 <a
-                  href="https://mynano.ninja"
-                  target="_blank"
+                  href="https://explorer.kizunanocoin.com/"
+                  target="_self"
                   className="text-muted"
                 >
-                  My Nano Ninja
+                  KIZUNANO COIN Blockchain Explorer
                 </a>
               )
             }}
