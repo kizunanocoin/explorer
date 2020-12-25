@@ -28,7 +28,7 @@ function App({ locale }) {
         <div className="row mr-0 align-items-center">
           <div className="col-md">
             <div className="py-2 px-4">
-              <p className="mb-0">Created by The KIZ Association (TKA)</p>
+              <p className="mb-0">Created by THE KIZUNANO CORP. (TKC)</p>
               <p>
                 Donations: <AccountLink account={config.donationAddress} />
               </p>
