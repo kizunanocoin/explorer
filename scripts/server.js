@@ -681,7 +681,7 @@ app.get("/v2/representatives/official", async (req, res, next) => {
  */
 app.get("/v2/ticker", async (req, res, next) => {
     try {
-        const response = await axios.get("https://api.coingecko.com/api/v3/coins/kizunacoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false");
+        const response = await axios.get("https://coinutil.net/currency/price/kizunano-coin");
         res.json({ "USD": response.data.market_data.current_price.usd, "BTC": response.data.market_data.current_price.btc });
     } catch (e) {
         next(e);
